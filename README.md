@@ -1,3 +1,3 @@
 # BinaryTree
 
-A description of this package.
+A simple implementation of a Realm-backed Binary Tree.
