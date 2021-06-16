@@ -27,7 +27,7 @@ public protocol TreeTraversable {
         ```
         will print `4 2 5 1 3`
      */
-    func mapInOrder(tree: BinaryTree, closure: (T?) -> Void)
+    func mapInOrder(tree: RealmBinaryTree, closure: (T?) -> Void)
     
     
     /**
@@ -46,7 +46,7 @@ public protocol TreeTraversable {
      ```
      will print `1 2 4 5 3`
      */
-    func mapPreOrder(tree: BinaryTree, closure: (T?) -> Void)
+    func mapPreOrder(tree: RealmBinaryTree, closure: (T?) -> Void)
     
     /**
      Algorithm Postorder(tree)
@@ -64,13 +64,13 @@ public protocol TreeTraversable {
      ```
      will print `4 5 2 3 1`
      */
-    func mapPostOrder(tree: BinaryTree, closure: (T?) -> Void)
+    func mapPostOrder(tree: RealmBinaryTree, closure: (T?) -> Void)
 }
 
 
 public extension TreeTraversable {
     
-    func mapInOrder(tree: BinaryTree, closure: (T?) -> Void) {
+    func mapInOrder(tree: RealmBinaryTree, closure: (T?) -> Void) {
         if let leftChild = tree.leftChild {
             mapInOrder(tree: leftChild, closure: closure)
         }
@@ -82,7 +82,7 @@ public extension TreeTraversable {
         }
     }
     
-    func mapPreOrder(tree: BinaryTree, closure: (T?) -> Void) {
+    func mapPreOrder(tree: RealmBinaryTree, closure: (T?) -> Void) {
         closure(tree.data)
 
         if let leftChild = tree.leftChild {
@@ -94,7 +94,7 @@ public extension TreeTraversable {
         }
     }
     
-    func mapPostOrder(tree: BinaryTree, closure: (T?) -> Void) {
+    func mapPostOrder(tree: RealmBinaryTree, closure: (T?) -> Void) {
         if let leftChild = tree.leftChild {
             mapPostOrder(tree: leftChild, closure: closure)
         }

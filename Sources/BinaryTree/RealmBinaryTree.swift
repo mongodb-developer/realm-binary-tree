@@ -1,26 +1,29 @@
 import Foundation
+import Realm
 
-/// A node of a tree. Can be a Leaf (without children) or an inner Node
+/// A Binary Tree has a Root node and at most two children (they can be `nil`)
 /// to get both children nodes access ``children``
-/// Nodes contain a piece of data (of type `T`)
-public class RealmBinaryTree: BinaryTree {
+public class RealmBinaryTree: RLMObject, TreeTraversable {
     
-    public var data: String?
+    /// Data stored in this node
+    @objc public dynamic var data: String?
+
+    /// Root node of this tree. A Root node tree has no parent
+    @objc public dynamic var root: RealmBinaryTree? = nil
     
-    public var root: BinaryTree? = nil
+    /// Left child of this Subtree
+    @objc public dynamic var leftChild: RealmBinaryTree? = nil
     
-    public var leftChild: BinaryTree? = nil
+    /// Right child of this Subtree
+    @objc public dynamic var rightChild: RealmBinaryTree? = nil
     
-    public var rightChild: BinaryTree? = nil
-    
-    public var children: (left: BinaryTree?, right: BinaryTree?) {
+    /// Both children
+    public var children: (left: RealmBinaryTree?, right: RealmBinaryTree?) {
         (leftChild, rightChild)
     }
     
-    public var parent: BinaryTree? = nil
-
-    public init() {
-    }
+    /// Every node/subtree has a parent except the root node
+    public var parent: RealmBinaryTree? = nil
     
     public convenience init(data: String?) {
         self.init()
@@ -56,6 +59,8 @@ public class RealmBinaryTree: BinaryTree {
         data == nil
     }
     
+    /// Checks if a Node/Subtree has a parent Node
+    /// - Returns: true if has a ``parent``
     public func hasParent() -> Bool {
         parent != nil
     }
@@ -73,6 +78,6 @@ public class RealmBinaryTree: BinaryTree {
     /// ```
     /// - Returns: a new Node, that will contain what's currently in this node's left child
     func nodeFromLeftChild() -> RealmBinaryTree {
-        RealmBinaryTree(left: leftChild as? RealmBinaryTree, right: nil, data: nil)
+        RealmBinaryTree(left: leftChild, right: nil, data: nil)
     }
 }

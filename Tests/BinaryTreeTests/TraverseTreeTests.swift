@@ -46,7 +46,7 @@ class TraverseTreeTests: XCTestCase {
         XCTAssertEqual(result, ["4","5","2","3","1"])
     }
     
-    private func createTestTree() -> BinaryTree {
+    private func createTestTree() -> RealmBinaryTree {
         let tree = RealmBinaryTree(data: "1")
         let leftNode = RealmBinaryTree(data: "2")
         leftNode.leftChild = RealmBinaryTree(data: "4")
