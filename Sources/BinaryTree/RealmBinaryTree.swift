@@ -14,10 +14,10 @@ public class RealmBinaryTree: RLMObject, TreeTraversable {
     /// Left child of this Subtree
     @objc public dynamic var leftChild: RealmBinaryTree? = nil
     
-    /// Right child of this Subtree
+    /// Right child of this subtree
     @objc public dynamic var rightChild: RealmBinaryTree? = nil
     
-    /// Both children
+    /// Both ``leftChild`` and ``rightChild`` children of this subtree
     public var children: (left: RealmBinaryTree?, right: RealmBinaryTree?) {
         (leftChild, rightChild)
     }
@@ -25,6 +25,8 @@ public class RealmBinaryTree: RLMObject, TreeTraversable {
     /// Every node/subtree has a parent except the root node
     public var parent: RealmBinaryTree? = nil
     
+    /// Creates a new Binary Tree using the String supplied
+    /// - Parameter data: a String that will be stored in the root node of this tree
     public convenience init(data: String?) {
         self.init()
         
@@ -33,6 +35,11 @@ public class RealmBinaryTree: RLMObject, TreeTraversable {
         self.data = data
     }
     
+    /// Creates a new Binary Tree using two existing trees and some data for the root node
+    /// - Parameters:
+    ///   - left: tree that will be the left child of the newly created tree
+    ///   - right: tree that will be the right child of the newly created tree
+    ///   - data: data for the root node
     public convenience init(left: RealmBinaryTree?, right: RealmBinaryTree?, data: String?) {
         self.init()
         

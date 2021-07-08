@@ -1,12 +1,7 @@
-//
-//  File.swift
-//  
-//
-//  Created by Diego Freniche Brito on 16/6/21.
-//
-
 import Foundation
 
+
+/// Describes behaviours any tree that should be traversable must implement
 public protocol TreeTraversable {
     
     typealias T = String
