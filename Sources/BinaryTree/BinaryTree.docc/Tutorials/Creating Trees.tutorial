@@ -1,12 +1,12 @@
 @Tutorial(time: 10) {
     @Intro(title: "Creating Trees") {
-        How to traverse Trees
+        How to create Trees
         
         @Image(source: seed-tree.jpg, alt: "")
     }
     
-    @Section(title: "Creating trees") {
-        @ContentAndMedia(layout: horizontal) {
+    @Section(title: "Traversiong trees") {
+        @ContentAndMedia() {
             Let's create some trees
             
         }

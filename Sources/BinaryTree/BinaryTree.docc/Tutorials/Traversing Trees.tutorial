@@ -1,32 +1,35 @@
 @Tutorial(time: 10) {
     @Intro(title: "Traversing Trees") {
-        How to create Trees
+        How to traverse Trees
         
         @Image(source: traverse-tree.jpg, alt: "")
     }
     
-    @Section(title: "Creating trees") {
-        @ContentAndMedia(layout: horizontal) {
-            Let's create some trees
-            
-<!--            @Image(source: <#file#>, alt: "<#accessible description#>")-->
+    @Section(title: "Traversing trees using in order") {
+        @ContentAndMedia() {
+            Let's traverse a tree!            
         }
         
         @Steps {
             @Step {
-                Import `BinaryTree`                
-                @Code(name: "CreateTree.swift", file: 01-create-tree.swift)
+                We want to traverse this tree                
+                @Code(name: "CreateTree.swift", file: 01-traverse-inorder.swift)
 
             }
             
             @Step {
-                Create an empty Tree object
-                @Code(name: "CreateTree.swift", file: 02-create-tree.swift)
+                So we add a `func` to create that test tree                
+                @Code(name: "CreateTree.swift", file: 02-traverse-inorder.swift)
             }
             
             @Step {
-                Add left and right children. These children are also of type ``RealmBinaryTree``
-                @Code(name: "CreateTree.swift", file: 03-create-tree.swift)
+                Now we can instantiate a Tree object, using the `createTestTree` `func`. We also want to store the visited nodes in an array.
+                @Code(name: "CreateTree.swift", file: 03-traverse-inorder.swift)
+            }
+            
+            @Step {
+                Call `mapinorder` func and see the results!
+                @Code(name: "CreateTree.swift", file: 04-traverse-inorder.swift)
             }
         }
     }
