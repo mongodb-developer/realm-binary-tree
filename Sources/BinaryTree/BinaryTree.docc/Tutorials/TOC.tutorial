@@ -8,9 +8,9 @@
     @Chapter(name: "Creating Trees") {
         Everything you need to know about creating trees
         
-        @Image(source: tree.png, alt: "")
+        @Image(source: seed-tree.jpg, alt: "")
         
-        @TutorialReference(tutorial: "doc:Creating-Trees")
+        @TutorialReference(tutorial: "doc:CreatingTrees")
     }
     
     @Chapter(name: "Traversing Trees") {
@@ -18,6 +18,6 @@
         
         @Image(source: traverse-tree.jpg, alt: "")
         
-        @TutorialReference(tutorial: "doc:Traversing-Trees")
+        @TutorialReference(tutorial: "doc:TraversingTrees")
     }
 }

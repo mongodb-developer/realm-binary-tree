@@ -14,7 +14,9 @@ This ``RealmBinaryTree`` will store `String` data in its nodes. We can traverse 
 ### Starting out
 
 - <doc:HowToUse>
+- <doc:/tutorials/TOC>
 
 ### Traverse a Tree
 
 - <doc:Traversing>
+- <doc:/tutorials/Traversing-Trees>
