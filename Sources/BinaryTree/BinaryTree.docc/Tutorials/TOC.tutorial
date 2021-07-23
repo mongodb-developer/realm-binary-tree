@@ -1,0 +1,23 @@
+@Tutorials(name: "Binary Trees") {
+    @Intro(title: "Binary Trees Tutorial") {
+        This tutorial will teach you how to use Binary Trees and how to traverse them!
+        
+        @Image(source: tree.png, alt: "A real Tree")
+    }
+    
+    @Chapter(name: "Creating Trees") {
+        Everything you need to know about creating trees
+        
+        @Image(source: tree.png, alt: "")
+        
+        @TutorialReference(tutorial: "doc:Creating-Trees")
+    }
+    
+    @Chapter(name: "Traversing Trees") {
+        Everything you need to know about creating trees
+        
+        @Image(source: traverse-tree.jpg, alt: "")
+        
+        @TutorialReference(tutorial: "doc:Traversing-Trees")
+    }
+}

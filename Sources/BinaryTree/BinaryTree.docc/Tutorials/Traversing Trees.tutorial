@@ -1,0 +1,33 @@
+@Tutorial(time: 10) {
+    @Intro(title: "Traversing Trees") {
+        How to create Trees
+        
+        @Image(source: traverse-tree.jpg, alt: "")
+    }
+    
+    @Section(title: "Creating trees") {
+        @ContentAndMedia(layout: horizontal) {
+            Let's create some trees
+            
+<!--            @Image(source: <#file#>, alt: "<#accessible description#>")-->
+        }
+        
+        @Steps {
+            @Step {
+                Import `BinaryTree`                
+                @Code(name: "CreateTree.swift", file: 01-create-tree.swift)
+
+            }
+            
+            @Step {
+                Create an empty Tree object
+                @Code(name: "CreateTree.swift", file: 02-create-tree.swift)
+            }
+            
+            @Step {
+                Add left and right children. These children are also of type ``RealmBinaryTree``
+                @Code(name: "CreateTree.swift", file: 03-create-tree.swift)
+            }
+        }
+    }
+}
