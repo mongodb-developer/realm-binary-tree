@@ -9,7 +9,9 @@ This library __is a demo on how to use DocC__. Also shows how to integrate Realm
 |![](img/main-page.png) | ![](img/tree-traversable.png) |
 
 
-You can read a series of posts about how to create a small guessing game in the Realm/MongoDB blog, starting with [Creating a framework that uses Realm as a 3rd party dependency](https://www.mongodb.com/developer/how-to/adding-realm-as-dependency-ios-framework/).
+You can read a series of posts about how to create a small guessing game in the Realm/MongoDB blog, starting with [Creating a framework that uses Realm as a 3rd party dependency](https://www.mongodb.com/developer/how-to/adding-realm-as-dependency-ios-framework/)
+
+Generated DocC file can be found [here](https://github.com/mongodb-developer/realm-binary-tree-docc)
 
 ## Resources
 
