@@ -1,21 +1,19 @@
-@Tutorial(time: 10) {
+@Tutorial(time: 5) {
     @Intro(title: "Creating Trees") {
         How to create Trees
         
-        @Image(source: seed-tree.jpg, alt: "")
+        @Image(source: seed-tree.jpg, alt: "This is an image of a Tree")
     }
     
-    @Section(title: "Traversiong trees") {
+    @Section(title: "Creating trees") {
         @ContentAndMedia() {
             Let's create some trees
-            
         }
         
         @Steps {
             @Step {
                 Import `BinaryTree`                
                 @Code(name: "CreateTree.swift", file: 01-create-tree.swift)
-
             }
             
             @Step {
