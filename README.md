@@ -1,7 +1,7 @@
 # BinaryTree
 
 A simple implementation of a Realm-backed [Binary Tree](https://en.wikipedia.org/wiki/Binary_tree).
-
+ 
 This library __is a demo on how to use DocC__. Also shows how to integrate Realm in your Libraries. See how your new docs will look!
 
 | |  |
