@@ -12,9 +12,7 @@ jobs:
     steps:
     - name: Git Checkout
     - uses: actions/checkout@v2
-    - name: Build
-    - run: |
+    - name: Build Doc and Find Archive
+      run: |
           xcodebuild docbuild -scheme BinaryTree -derivedDataPath ./docbuild -destination 'platform=iOS Simulator,name=iPhone 13 mini,OS=latest'
-    - name: Find DocC Archive
-    - run: |
           find ./docbuild -type d -iname "BinaryTree.doccarchive"
