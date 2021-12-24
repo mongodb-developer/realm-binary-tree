@@ -9,13 +9,12 @@ jobs:
   build:
 
     runs-on: macos-latest
-    strategy:
-        matrix:
-          destination: ['platform=macOS Simulator,name=Any Mac']
     steps:
     - name: Git Checkout
     - uses: actions/checkout@v2
     - name: Build
-      run: xcodebuild docbuild -scheme BinaryTree -derivedDataPath ./docbuild -destination 'platform=iOS Simulator,name=iPhone 13 mini,OS=latest'
+      run: |
+          xcodebuild docbuild -scheme BinaryTree -derivedDataPath ./docbuild -destination 'platform=iOS Simulator,name=iPhone 13 mini,OS=latest'
     - name: Find DocC Archive
-      run: find ./docbuild -type d -iname "BinaryTree.doccarchive"
+      run: 
+          find ./docbuild -type d -iname "BinaryTree.doccarchive"
