@@ -16,5 +16,6 @@ jobs:
           echo "🚀 Starting Job"
           xcodebuild -version
           xcrun simctl list devices --json
-          xcodebuild docbuild -scheme BinaryTree -derivedDataPath ./docbuild -destination 'platform=iOS Simulator,OS=latest,name=iPhone 13 mini'          find ./docbuild -type d -iname "BinaryTree.doccarchive"
+          xcodebuild docbuild -scheme BinaryTree -derivedDataPath ./docbuild -destination 'platform=iOS Simulator,OS=latest,name=iPhone 13 mini'          
+          find ./docbuild -type d -iname "BinaryTree.doccarchive"
     - run: echo "🍏 This job's status is ${{ job.status }}."
