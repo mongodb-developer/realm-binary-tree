@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: Git Checkout
       uses: actions/checkout@v2
-    - name: Build Doc and Find Archive
+    - name: Build Doc Bundle
       run: |
           echo "🚀 Starting Job"
           # You can print out which version of Xcode is used in this GH Action
@@ -22,7 +22,9 @@ jobs:
           # I'm redirecting all output from building the project and docs to build_output.txt
           # If you want to see it, uncomment next line
           # cat build_output.txt
-          
+    - name: Find DooC Archive
+      run: |
+          echo "🚀 Starting Job"
           # This bundle is somewhere inside .docbuild, let's find it
           DOCC_DIR=`find ./docbuild -type d -iname "BinaryTree.doccarchive"`
           
