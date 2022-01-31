@@ -32,8 +32,14 @@ jobs:
           cd "$DOCC_DIR"
           cd ..
           ls -al
+          
+          
           git clone https://github.com/mongodb-developer/realm-binary-tree-docc
           cp -R BinaryTree.doccarchive realm-binary-tree-docc
           cd realm-binary-tree-docc
           git status
+          git add .
+          git commit -m "DocC generated from Action!"
+          git status
+
     - run: echo "🍏 This job's status is ${{ job.status }}."
