@@ -3,7 +3,7 @@ name: Generate DocC
 # we'll start this action on every push to this branch
 on:
   push:
-    branches: [ docc ]
+    branches: [ main ]
 
 jobs:
   Build-Github-Actions:
