@@ -18,7 +18,10 @@ jobs:
           # xcodebuild -version
           
           # Build documentation bundle
-          xcodebuild docbuild -scheme BinaryTree -derivedDataPath ./docbuild -destination 'platform=iOS Simulator,OS=latest,name=iPhone 13 mini'          
+          xcodebuild docbuild -scheme BinaryTree -derivedDataPath ./docbuild -destination 'platform=iOS Simulator,OS=latest,name=iPhone 13 mini' > build_output.txt
+          # I'm redirecting all output from building the project and docs to build_output.txt
+          # If you want to see it, uncomment next line
+          # cat build_output.txt
           
           # This bundle is somewhere inside .docbuild, let's find it
           DOCC_DIR=`find ./docbuild -type d -iname "BinaryTree.doccarchive"`
@@ -27,4 +30,8 @@ jobs:
           cd "$DOCC_DIR"
           cd ..
           ls -al
+          git clone https://github.com/mongodb-developer/realm-binary-tree-docc
+          cp -R BinaryTree.doccarchive realm-binary-tree-docc
+          cd realm-binary-tree-docc
+          git status
     - run: echo "🍏 This job's status is ${{ job.status }}."
