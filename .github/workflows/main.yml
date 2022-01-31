@@ -14,8 +14,17 @@ jobs:
     - name: Build Doc and Find Archive
       run: |
           echo "🚀 Starting Job"
-          xcodebuild -version
-          xcrun simctl list devices --json
+          # You can print out which version of Xcode is used in this GH Action
+          # xcodebuild -version
+          
+          # Build documentation bundle
           xcodebuild docbuild -scheme BinaryTree -derivedDataPath ./docbuild -destination 'platform=iOS Simulator,OS=latest,name=iPhone 13 mini'          
-          find ./docbuild -type d -iname "BinaryTree.doccarchive"
+          
+          # This bundle is somewhere inside .docbuild, let's find it
+          DOCC_DIR=`find ./docbuild -type d -iname "BinaryTree.doccarchive"`
+          
+          # let's move to that directory
+          cd "$DOCC_DIR"
+          cd ..
+          ls -al
     - run: echo "🍏 This job's status is ${{ job.status }}."
