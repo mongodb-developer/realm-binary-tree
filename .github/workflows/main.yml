@@ -41,5 +41,6 @@ jobs:
           git add .
           git commit -m "DocC generated from Action!"
           git status
+          git push origin
 
     - run: echo "🍏 This job's status is ${{ job.status }}."
