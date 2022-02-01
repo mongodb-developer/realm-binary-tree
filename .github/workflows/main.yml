@@ -41,6 +41,16 @@ jobs:
           git add .
           git commit -m "DocC generated from Action!"
           git status
-          git push origin
+          # git push origin
+    - name: Pushes to another repository
+      uses: cpina/github-action-push-to-another-repository@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source-directory: $DOCC_DIR
+        destination-github-username: 'dfreniche'
+        destination-repository-name: 'test'
+        user-email: diego@freniche.com
+        target-branch: main
 
     - run: echo "🍏 This job's status is ${{ job.status }}."
