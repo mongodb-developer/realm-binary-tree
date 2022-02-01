@@ -41,16 +41,12 @@ jobs:
           git add .
           git commit -m "DocC generated from Action!"
           git status
-          # git push origin
-    - name: Pushes to another repository
-      uses: cpina/github-action-push-to-another-repository@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      with:
-        source-directory: $DOCC_DIR
-        destination-github-username: 'dfreniche'
-        destination-repository-name: 'test'
-        user-email: diego@freniche.com
-        target-branch: main
+          git config --get remote.origin.url
+
+          git remote set-url origin https://${{ secrets.API_TOKEN_GITHUB }}@github.com/mongodb-developer/realm-binary-tree-docc
+          git config --get remote.origin.url
+
+          git push origin
+
 
     - run: echo "🍏 This job's status is ${{ job.status }}."
