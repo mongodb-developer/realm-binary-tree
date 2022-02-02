@@ -1,30 +1,39 @@
 name: Generate DocC
+# This Github Action generates the DocC documentation for the current repo
+# Then pushes this newly generated `.doccarchive` to a second repo
+# Netlify is configured to pick up any changes to this second repo and serve the doc online!
 
-# we'll start this action on every push to this branch
 on:
   push:
     branches: [ main ]
+    # we'll start this action on every push to main
 
 jobs:
   Build-Github-Actions:
     runs-on: macos-latest
+    # we need to run eveything on macOS, as we need to have Xcode installed
+    
     steps:
+    # 1st, the Action will clone this repo (that contains the code)
     - name: Git Checkout
       uses: actions/checkout@v2
-    - name: Build Doc Bundle
+    # now we'll build the documentation
+    - name: Build Doc Bundle 📗
       run: |
-          echo "🚀 Starting Job"
-          # You can print out which version of Xcode is used in this GH Action
+          echo "🚀 Starting building Documentation"
+          # You can print out which version of Xcode is used in this GH Action with:
           # xcodebuild -version
           
-          # Build documentation bundle
+          # Build the documentation bundle
           xcodebuild docbuild -scheme BinaryTree -derivedDataPath ./docbuild -destination 'platform=iOS Simulator,OS=latest,name=iPhone 13 mini' > build_output.txt
+          
           # I'm redirecting all output from building the project and docs to build_output.txt
-          # If you want to see it, uncomment next line
+          # If you want to see it (or need to debug some problem), uncomment next line
           # cat build_output.txt
-    - name: Find DooC Archive
+          
+    # Doc is built, but it's inside docbuild
+    - name: Find DooC Archive 🔍
       run: |
-          echo "🚀 Starting Job"
           # This bundle is somewhere inside .docbuild, let's find it
           DOCC_DIR=`find ./docbuild -type d -iname "BinaryTree.doccarchive"`
           
@@ -33,20 +42,31 @@ jobs:
           cd ..
           ls -al
           
+    # We'll push this new docs to the repo containing just the documentation
+    - name: Push new documentation to doc repo ⬆️
+      run: |      
           
+          # we get the last commit message for this library and add current date
+          DOC_COMMIT_MESSAGE=`git log -1  --pretty='%s'`" - "`date +%Y/%m/%d`
+          
+          # we need to add the doccarchive to the documentation repo, so we clone it
           git clone https://github.com/mongodb-developer/realm-binary-tree-docc
+          
+          # we copy all files in the right place
           cp -R BinaryTree.doccarchive realm-binary-tree-docc
           cd realm-binary-tree-docc
-          git status
-          git add .
-          git commit -m "DocC generated from Action!"
-          git status
-          git config --get remote.origin.url
 
+          # there are pending changes, let's commit and push those
+          git add .
+          git commit -m "$DOC_COMMIT_MESSAGE"
+          git status
+          
+          # we point the origin to the repo we've just cloned
+          # we need to do this because right now origin points to this repo containing the Github Action
+          git config --get remote.origin.url
           git remote set-url origin https://${{ secrets.API_TOKEN_GITHUB }}@github.com/mongodb-developer/realm-binary-tree-docc
           git config --get remote.origin.url
 
           git push origin
-
 
     - run: echo "🍏 This job's status is ${{ job.status }}."
