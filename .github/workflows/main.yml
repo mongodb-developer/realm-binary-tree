@@ -67,6 +67,6 @@ jobs:
           git remote set-url origin https://${{ secrets.API_TOKEN_GITHUB }}@github.com/mongodb-developer/realm-binary-tree-docc
           git config --get remote.origin.url
 
+          # finally we push our changes. This will update the DocC repo and Netlify will pick up that change serving the new version
+          # check the documentation online here: https://binary-tree-doc.netlify.app/documentation/
           git push origin
-
-    - run: echo "🍏 This job's status is ${{ job.status }}."
