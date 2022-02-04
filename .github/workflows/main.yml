@@ -39,6 +39,7 @@ jobs:
           
           # let's move to that directory
           cd "$DOCC_DIR"
+          pwd
           cd ..
           ls -al
           
@@ -50,6 +51,9 @@ jobs:
           
           # we need to add the doccarchive to the documentation repo, so we clone it
           git clone https://github.com/mongodb-developer/realm-binary-tree-docc
+          
+          pwd
+          ls -al
           
           # we copy all files in the right place
           cp -R "$DOCC_DIR" realm-binary-tree-docc
