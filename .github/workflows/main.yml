@@ -55,6 +55,7 @@ jobs:
           cd realm-binary-tree-docc
           pwd
           ls -al
+          echo "$DOCC_DIR"
           
           # we copy all files in the right place
           ls -al "$DOCC_DIR"
