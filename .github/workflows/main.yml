@@ -36,7 +36,7 @@ jobs:
       run: |
           # This bundle is somewhere inside .docbuild, let's find it
           DOCC_DIR=`find ./docbuild -type d -iname "BinaryTree.doccarchive"`
-          
+          echo $DOCC_DIR
           # let's move to that directory
           # cd "$DOCC_DIR"
           #pwd
@@ -48,14 +48,14 @@ jobs:
       run: |      
           # we get the last commit message for this library and add current date
           DOC_COMMIT_MESSAGE=`git log -1  --pretty='%s'`" - "`date +%Y/%m/%d`
-          
+          echo "$DOCC_DIR"
+
           # we need to add the doccarchive to the documentation repo, so we clone it
           git clone https://github.com/mongodb-developer/realm-binary-tree-docc
           
           cd realm-binary-tree-docc
           pwd
           ls -al
-          echo "$DOCC_DIR"
           
           # we copy all files in the right place
           ls -al "$DOCC_DIR"
