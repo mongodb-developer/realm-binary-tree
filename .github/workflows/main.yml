@@ -38,10 +38,10 @@ jobs:
           DOCC_DIR=`find ./docbuild -type d -iname "BinaryTree.doccarchive"`
           
           # let's move to that directory
-          cd "$DOCC_DIR"
-          pwd
-          cd ..
-          ls -al
+          # cd "$DOCC_DIR"
+          #pwd
+          #cd ..
+          #ls -al
           
     # We'll push this new docs to the repo containing just the documentation
     - name: Push new documentation to doc repo ⬆️
@@ -52,11 +52,13 @@ jobs:
           # we need to add the doccarchive to the documentation repo, so we clone it
           git clone https://github.com/mongodb-developer/realm-binary-tree-docc
           
+          cd realm-binary-tree-docc
           pwd
           ls -al
           
           # we copy all files in the right place
-          cp -R "$DOCC_DIR" realm-binary-tree-docc
+          ls -al "$DOCC_DIR"
+          cp -R "$DOCC_DIR" .
           cd realm-binary-tree-docc
 
           # there are pending changes, let's commit and push those
