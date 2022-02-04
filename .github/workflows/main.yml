@@ -46,12 +46,9 @@ jobs:
           git clone https://github.com/mongodb-developer/realm-binary-tree-docc
           
           # we copy all files in the right place
-          ls -al "$DOCC_DIR"
           cp -R "$DOCC_DIR" realm-binary-tree-docc
           
           cd realm-binary-tree-docc
-          pwd
-          ls -al
           
           # there are pending changes, let's commit and push those
           git add .
