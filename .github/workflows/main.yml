@@ -45,7 +45,6 @@ jobs:
     # We'll push this new docs to the repo containing just the documentation
     - name: Push new documentation to doc repo ⬆️
       run: |      
-          
           # we get the last commit message for this library and add current date
           DOC_COMMIT_MESSAGE=`git log -1  --pretty='%s'`" - "`date +%Y/%m/%d`
           
@@ -53,7 +52,7 @@ jobs:
           git clone https://github.com/mongodb-developer/realm-binary-tree-docc
           
           # we copy all files in the right place
-          cp -R BinaryTree.doccarchive realm-binary-tree-docc
+          cp -R "$DOCC_DIR" realm-binary-tree-docc
           cd realm-binary-tree-docc
 
           # there are pending changes, let's commit and push those
