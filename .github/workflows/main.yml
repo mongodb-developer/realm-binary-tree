@@ -31,21 +31,13 @@ jobs:
           # If you want to see it (or need to debug some problem), uncomment next line
           # cat build_output.txt
           
-    # Doc is built, but it's inside docbuild
-    - name: Find DooC Archive 🔍
-      run: |
-          # This bundle is somewhere inside .docbuild, let's find it
-          DOCC_DIR=`find ./docbuild -type d -iname "BinaryTree.doccarchive"`
-          echo $DOCC_DIR
-          # let's move to that directory
-          # cd "$DOCC_DIR"
-          #pwd
-          #cd ..
-          #ls -al
-          
     # We'll push this new docs to the repo containing just the documentation
     - name: Push new documentation to doc repo ⬆️
       run: |      
+          
+          # Doc is built, but it's inside docbuild, let's find it
+          DOCC_DIR=`find ./docbuild -type d -iname "BinaryTree.doccarchive"`
+
           # we get the last commit message for this library and add current date
           DOC_COMMIT_MESSAGE=`git log -1  --pretty='%s'`" - "`date +%Y/%m/%d`
           echo "$DOCC_DIR"
