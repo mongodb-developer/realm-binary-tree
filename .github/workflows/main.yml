@@ -45,15 +45,14 @@ jobs:
           # we need to add the doccarchive to the documentation repo, so we clone it
           git clone https://github.com/mongodb-developer/realm-binary-tree-docc
           
+          # we copy all files in the right place
+          ls -al "$DOCC_DIR"
+          cp -R "$DOCC_DIR" realm-binary-tree-docc
+          
           cd realm-binary-tree-docc
           pwd
           ls -al
           
-          # we copy all files in the right place
-          ls -al "$DOCC_DIR"
-          cp -R "$DOCC_DIR" .
-          cd realm-binary-tree-docc
-
           # there are pending changes, let's commit and push those
           git add .
           git commit -m "$DOC_COMMIT_MESSAGE"
