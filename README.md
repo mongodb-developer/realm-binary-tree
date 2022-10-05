@@ -23,8 +23,41 @@ For the impatient, check the [`main.yml` file](./.github/workflows/main.yml)
 
 Generated DocC files can be found [in this repo](https://github.com/mongodb-developer/realm-binary-tree-docc)
 
-## Resources
+## Local testing
 
+Every time you build the documentation from Xcode the documentation browser will allow you to check how your docs look. [You can export the docs as a Documentation Archive](https://developer.apple.com/documentation/Xcode/distributing-documentation-to-external-developers).
+
+But this docs are a web site that we can serve locally. Let's see how to do it using Docker
+
+To host your generated docs in a local web server, if you have Docker installed you can create your own image or mount the generated doc folder
+
+### Creating an Image
+
+Create an image based on this Docker file: it'll have an Apache httpd server and the doccarchive files
+
+```bash
+docker build -t docs .
+```
+
+then run the image in a container
+
+```bash
+docker run -dit --name my-running-app -p 8080:80 docs
+```
+
+### Mounting the generated doc folder
+
+```bash
+docker run -dit -v /Users/dfreniche/Code/DocC/BinaryTree/docs/BinaryTree.doccarchive:/usr/local/apache2/htdocs/  -p 8080:80 httpd:2.4
+```
+
+Change the path to where you exported the doccarchive
+
+- To access the documentation, navigate to: http://localhost:8080/documentation/binarytree/
+- To access the tutorials: http://localhost:8080/tutorials/binarytree/
+
+
+## Resources
 To learn more about Realm/MongoDB you have all these fantastic resources:
 
 - [💻 MongoDB DeveloperHub, central point for everything MongoDB/Realm related](https://www.mongodb.com/developer)
