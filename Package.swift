@@ -16,11 +16,12 @@ let package = Package(
     ],
     dependencies: [
         // We need Realm for our Tree implementation
-        .package(name: "Realm", url: "https://github.com/realm/realm-swift.git", from: "10.7.0")
+        .package(name: "Realm", url: "https://github.com/realm/realm-swift.git", from: "10.30.0")
     ],
     targets: [
         .target(
             name: "BinaryTree",
+            // from Realm we use RealmSwift
             dependencies: [.product(name: "RealmSwift", package: "Realm")]),
         .testTarget(
             name: "BinaryTreeTests",
